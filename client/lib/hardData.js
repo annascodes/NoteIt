@@ -90,3 +90,121 @@ export const AppNoteTags = [
   "Writing",
   "Plans",
 ];
+
+
+export const AppDummyNotes = [
+  {
+    heading: "Buy Groceries from the latest store. wher i like to go",
+    text: "Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.Need to buy milk, eggs, bread, and vegetables before evening.",
+    tag: "Shopping",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-10T10:15:00.000Z",
+    updatedAt: "2025-01-10T10:15:00.000Z"
+  },
+  {
+    heading: "Project Meeting Summary",
+    text: "Discussed feature updates and assigned new tasks. Next meeting on Friday.",
+    tag: "Work",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-11T09:20:00.000Z",
+    updatedAt: "2025-01-11T09:20:00.000Z"
+  },
+  {
+    heading: "Gym Routine",
+    text: "Chest and triceps today. Drink more water and stretch for 10 minutes.",
+    tag: "Health",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-12T08:00:00.000Z",
+    updatedAt: "2025-01-12T08:00:00.000Z"
+  },
+  {
+    heading: "JavaScript Study Notes",
+    text: "Review closures, promises, and async/await. Practice 20 small coding problems.",
+    tag: "Study",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-13T14:45:00.000Z",
+    updatedAt: "2025-01-13T14:45:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+  {
+    heading: "Vacation Ideas",
+    text: "Thinking about visiting northern areas. Look for cheap hotels and travel packages.",
+    tag: "Ideas",
+    user: "675a8fe239bc4a482cc1c1a1",
+    createdAt: "2025-01-14T16:30:00.000Z",
+    updatedAt: "2025-01-14T16:30:00.000Z"
+  },
+];
+
+

@@ -14,12 +14,16 @@ const useApiReq = () => {
         try {
             const res = await fetch(url, {
                 method,
+                credentials: "include",
+
                 headers: body ? { 'Content-Type': 'application/json' } : undefined,
                 body: body ? JSON.stringify(body) : undefined,
             })
             const result = await res.json()
             if(!res.ok){
-                setError(res.error)
+                //  console.log('res in useApiReq: ',res)
+                //  console.log('result in useApiReq: ',result)
+                setError(result.message)
                 setData(null)
             }else{
                 setData(result)
@@ -27,6 +31,7 @@ const useApiReq = () => {
             }
 
         } catch (error) {
+            // console.log('catch error in useApiReq: ',error)
             setError(error.message)
             setData(null)
         } finally {

@@ -8,13 +8,16 @@ import { LuToggleRight } from "react-icons/lu";
 import { PiNumberCircleFourFill, PiNumberCircleOneFill, PiNumberCircleThreeFill, PiNumberCircleTwoFill, PiNumberCircleZeroFill } from "react-icons/pi";
 import { FaCheck } from "react-icons/fa6";
 import { PiPlusBold } from "react-icons/pi";
-
-
-
-
-
-
-
+import { BsGrid3X2 } from "react-icons/bs";
+import { LuTableProperties } from "react-icons/lu";
+import { LuGrid3X3 } from "react-icons/lu";
+import { LuFileText } from "react-icons/lu";
+import { PiNote } from "react-icons/pi";
+import { PiNotepad } from "react-icons/pi";
+import { MdCancelPresentation } from "react-icons/md";
+import { PiIdentificationCard } from "react-icons/pi";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 
 const AllIcons = {
@@ -31,12 +34,23 @@ const AllIcons = {
     four: PiNumberCircleFourFill,
     check: FaCheck,
     plus: PiPlusBold,
-    
+    // grid: BsGrid3X2,
+    grid: LuGrid3X3,
+    table: LuTableProperties,
+    // -----notes-------
+    file: LuFileText,
+    note: PiNote,
+    notepad: PiNotepad,
+    cancel: MdCancelPresentation,
+    userCard:PiIdentificationCard,
+    linkedIn: FaLinkedin,
+    github: FaGithub,
+
 
 
 }
 
-const BasicIcons = ({ icon = 'clipboard', className='text-4xl' }) => {
+const BasicIcons = ({ icon = 'clipboard', className = 'text-4xl' }) => {
     const Icon = AllIcons[icon] || LuClipboardPenLine;
     return (
         <div className={`${className}`}>

@@ -1,7 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import NoteFormModal from './NoteFormModal'
+import LogoutModal from './LogoutModal'
+import TestModal from './TestModal'
 
 const Hero = ({ onlyBranding = false, noBtn = false }) => {
+    const { user } = useSelector(state => state.user)
     return (
         <div className={`${onlyBranding ? '' : 'md:h-svh h-96 p-5 border-0 flex justify-center items-center'}`}>
             <div>
@@ -24,12 +29,24 @@ const Hero = ({ onlyBranding = false, noBtn = false }) => {
                         {
                             !noBtn &&
                             <>
-                                <div className='flex items-center gap-3 mt-5'>
-                                    <Link to={'/signup'} className='btn btn-outline tracking-widest text-xs' >Create you account now</Link>
+                                {user
+                                    ? <div className='flex items-center gap-3 mt-5'>
+                                        <Link to={''} className='btn btn-outline tracking-widest text-xs' >
+                                            Show my notes
+                                        </Link>
+                                        <NoteFormModal id='fromHero'/>
+                                        <LogoutModal id='fromHero' />
+                                    </div>
 
-                                    <Link to={'/login'} className='btn btn-neutral tracking-widest text-xs'>Login</Link>
-                                </div>
+                                    : <div className='flex items-center gap-3 mt-5'>
+                                        <Link to={'/signup'} className='btn btn-outline tracking-widest text-xs' >Create you account now</Link>
 
+                                        <Link to={'/login'} className='btn btn-neutral tracking-widest text-xs'>Login</Link>
+                                    </div>
+
+
+
+                                }
                             </>
                         }
                     </>

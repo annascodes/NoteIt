@@ -6,6 +6,7 @@ import Hero from '../components/Hero'
 import useApiReq from '../hooks/useApiReq'
 import toast, { Toaster } from 'react-hot-toast';
 import BasicIcons from '../components/BasicIcons'
+import ErrorDiv from '../components/ErrorDiv'
 
 const SignUp = () => {
     const apiUrl = import.meta.env.VITE_BACKEND_URL;
@@ -22,11 +23,12 @@ const SignUp = () => {
     useEffect(() => {
         if (signupData) {
             toast(<div className='flex items-center gap-2'>
-                <BasicIcons icon='check'  />
+                <BasicIcons icon='check' className='text-xl'  />
                 <h1>User created</h1>
             </div>)
         }
     }, [signupData])
+    console.log(error)
     return (
 
         <div className='flex items-center justify-center gap-2 border-0 p-2 flex-wrap'>
@@ -39,20 +41,24 @@ const SignUp = () => {
                     <Hero noBtn={true} />
                 </div>
             </div>
-            <div className=' w-sm    p-5 border-4 mt-5 shadow-2xl border-neutral-800 rounded-2xl  '>
+            <div className=' w-sm    p-5 border-2 mt-5 shadow-2xl border-neutral-800 rounded-2xl  '>
                 <h1 className='text-center font-bold text-4xl mb-5'>SignUp</h1>
 
-                {/* <RegisterOpt/> */}
+                <RegisterOpt/>
 
                 <fieldset className="fieldset">
                     <legend className="fieldset-legend">Email</legend>
                     <input name='email' onChange={OnChange} type="text" className="input w-full" placeholder="email" />
                 </fieldset>
 
-                <fieldset className="fieldset">
+                <fieldset className="fieldset mb-2">
                     <legend className="fieldset-legend">Password</legend>
                     <input name='password' onChange={OnChange} type="password" className="input w-full" placeholder="password" />
                 </fieldset>
+
+                 {
+                    error && <ErrorDiv error={error} />
+                }
 
                 <div className='flex items-center justify-center mt-5'>
                     <button disabled={loading} onClick={handleSignUp} className='btn btn-outline   text-xs tracking-widest'>
@@ -65,16 +71,12 @@ const SignUp = () => {
 
                 <p className='text-xs tracking-wider mt-5'>Already have an account?
                     <Link className='text-blue-500 underline-offset-2 underline mx-2 hover:no-underline' to={'/login'}>Login</Link> </p>
-                {
-                    signupData && <pre className='text-xs tracking-widest'>
-                        {JSON.stringify(signupData, null, 10)}
-                    </pre>
-                }
-                {
-                    error && <pre className='text-xs tracking-widest text-red-500'>
-                        {JSON.stringify(error, null, 10)}
-                    </pre>
-                }
+                    {/* {
+                        signupData && <pre className='text-xs tracking-widest'>
+                            {JSON.stringify(signupData, null, 10)}
+                        </pre>
+                    } */}
+               
             </div>
             <Toaster position="top-center"
                 reverseOrder={false} />

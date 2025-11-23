@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import colors from 'colors'
 import authRoutes from './routes/auth.routes.js'
+import noteRoutes from './routes/note.routes.js'
 import { dbConnection } from './config/dbConn.js'
 import cors from 'cors'
 
@@ -18,6 +19,7 @@ app.use(cors({
 
 
 app.use('/api/auth', authRoutes)
+app.use('/api/note', noteRoutes )
 
 
 

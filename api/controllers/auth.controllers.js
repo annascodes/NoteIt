@@ -1,6 +1,8 @@
 import User from "../models/user.model.js";
 import { errHandler } from "../utility/error.js";
 import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import { generateToken } from "../utility/generateToken.js";
 
 export const signup = async (req, res, next) => {
     console.log(` -- auth.controllers.js / signup --`.bgWhite)
@@ -27,5 +29,43 @@ export const signup = async (req, res, next) => {
     } catch (error) {
         next(error)
 
+    }
+}
+
+
+export const login = async(req, res, next)=>{
+    try {
+        const {email, password} = req.body;
+         if(!email || !password || email.trim() ==='' || password.trim() ==='')
+            return next(errHandler(400, 'Email or password is not valid. '))
+
+        const user = await User.findOne({email, username: email.split('@')[0]})
+        if(!user) return next(errHandler(404, 'Email not found.'))
+        
+        const validPass = bcrypt.compareSync(password, user.password)
+        if(!validPass) return next(errHandler(402, 'Wrong credentials.'))
+
+        generateToken(user.id, user.email, res)
+
+        const {password:userPassword, ...rest} = user._doc;
+
+
+        
+        res.status(200).json(rest)
+        
+    } catch (error) {
+        console.log(error)
+        next(error)
+    }
+}
+
+
+export const logout = async(req, res, next)=>{
+    try {
+        console.log(`--- logging out ---`.bgWhite.black)
+        
+        res.status(200).clearCookie('access_token').json('Logged out. Ok.')
+    } catch (error) {
+        next(error)
     }
 }

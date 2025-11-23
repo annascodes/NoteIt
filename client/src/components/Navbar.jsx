@@ -1,10 +1,15 @@
 import React from 'react'
 import Navlinks from './Navlinks'
+import { useSelector } from 'react-redux'
+import LogoutModal from './LogoutModal'
 
 const Navbar = () => {
+
+    const { user } = useSelector(state => state.user)
+    console.log('navbar user: ', user)
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm fixed top-0 ">
+            <div className="navbar bg-base-100 shadow-sm fixed top-0 z-50 ">
                 <div className="navbar-start">
                     {/* <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -28,11 +33,16 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <Navlinks/>
+                        <Navlinks />
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    {user &&
+                        <div className='w-10 h-10 overflow-hidden rounded-xl '>
+                            <img src={user.profileImg} className='w-12 h-12 object-cover' alt="" />
+                        </div>
+                    }
+                    
                 </div>
             </div>
 

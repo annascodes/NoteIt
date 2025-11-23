@@ -14,12 +14,6 @@ const Home = () => {
   return (
     <div className=''>
 
-<div className='flex justify-end gap-5 p-5'>
-  <NoteFormModal/>
-</div>
-
-
-
 
       <Hero />
      
