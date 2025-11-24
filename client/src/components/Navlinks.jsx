@@ -21,7 +21,7 @@ const Navlinks = () => {
                     ? <>
                         <li>  <Link to={'/notes'} >Notes</Link> </li>
                         <li> <LogoutModal id='fromLinks' /> </li>
-                        <li>  <NoteFormModal btnClass={'btn btn-neutral btn-xs text-xs tracking-widest'} id='fromLinks' /> </li>
+                        {/* <li>  <NoteFormModal btnClass={'btn btn-neutral btn-xs text-xs tracking-widest'} id='fromLinks' /> </li> */}
                     </>
                     : <>
                         <li> <Link to={'/signup'} >SignUp</Link></li>

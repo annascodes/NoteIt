@@ -18,6 +18,9 @@ import { MdCancelPresentation } from "react-icons/md";
 import { PiIdentificationCard } from "react-icons/pi";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { LuTrash2 } from "react-icons/lu";
+import { LuPencil } from "react-icons/lu";
+
 
 
 const AllIcons = {
@@ -45,6 +48,8 @@ const AllIcons = {
     userCard:PiIdentificationCard,
     linkedIn: FaLinkedin,
     github: FaGithub,
+    trash: LuTrash2,
+    pencil: LuPencil
 
 
 

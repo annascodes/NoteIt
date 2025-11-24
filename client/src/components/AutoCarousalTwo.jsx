@@ -33,7 +33,7 @@ const AutoCarouselTwo = () => {
           <img
             key={i}
             src={src}
-            className="w-full object-cover flex-shrink-0"
+            className="w-full object-cover shrink-0"
           />
         ))}
       </div>

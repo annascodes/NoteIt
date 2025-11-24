@@ -7,31 +7,41 @@ import noteRoutes from './routes/note.routes.js'
 import { dbConnection } from './config/dbConn.js'
 import cors from 'cors'
 
-const app = express()
-app.use(express.json())
 dotenv.config()
-app.use(cookieParser())
+const app = express()
+
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: [
+       process.env.CLIENT_URL,
+        // "http://127.0.0.1:5173", // not working
+    ],
     credentials: true,
 }))
+app.use(express.json())
+app.use(cookieParser())
 
 
 
+
+app.use((req, res, next) => {
+  console.log(`cookies in every request:`.bgWhite);
+  console.log(req.cookies)
+  next();
+});
 app.use('/api/auth', authRoutes)
-app.use('/api/note', noteRoutes )
+app.use('/api/note', noteRoutes)
 
 
 
 
 
 
-app.listen(process.env.PORT ,()=>{
+app.listen(process.env.PORT, () => {
     console.log(`--- api/backend is running on ${process.env.PORT} ---`.bgYellow.black)
     dbConnection()
 })
 
-app.use((err, req, res, next)=>{
+app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || '--server error--';
     res.status(statusCode).json(
