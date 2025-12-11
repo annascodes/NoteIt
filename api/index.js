@@ -12,7 +12,7 @@ const app = express()
 
 app.use(cors({
     origin: [
-       process.env.CLIENT_URL,
+        process.env.CLIENT_URL,
         // "http://127.0.0.1:5173", // not working
     ],
     credentials: true,
@@ -24,21 +24,32 @@ app.use(cookieParser())
 
 
 app.use((req, res, next) => {
-  console.log(`cookies in every request:`.bgWhite);
-  console.log(req.cookies)
-  next();
+    console.log(`cookies in every request:`.bgWhite);
+    console.log(req.cookies)
+    next();
 });
+
+
 app.use('/api/auth', authRoutes)
 app.use('/api/note', noteRoutes)
 
 
 
 
+dbConnection()
+    .then(() => {
+        app.listen(process.env.PORT, () => {
+            console.log(`--- api/backend is running on ${process.env.PORT} ---`.bgYellow.black)
+        });
+    })
+    .catch(err => {
+        console.error('Failed to connect to DB:', err);
+    });
 
 
 app.listen(process.env.PORT, () => {
     console.log(`--- api/backend is running on ${process.env.PORT} ---`.bgYellow.black)
-    dbConnection()
+    // dbConnection()
 })
 
 app.use((err, req, res, next) => {
