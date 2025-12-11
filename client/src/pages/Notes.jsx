@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { AppDummyNotes, AppFeatures } from '../../lib/hardData'
 import BasicIcons from '../components/BasicIcons'
 import moment from 'moment'
@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import NoteFormModal from '../components/NoteFormModal'
 import useApiReq from '../hooks/useApiReq'
 import ShowNoteInFull from '../components/ShowNoteInFull'
+import Deleteit from '../components/Deleteit'
 const Notes = () => {
     const [myNotes, setMyNotes] = useState([])
     const { request, data, loading, error } = useApiReq()
@@ -18,6 +19,13 @@ const Notes = () => {
             setMyNotes(data)
         }
     }, [data])
+    // const handleDeleteNote = (id)=>{
+    //     console.log('delete this note: ', id)
+
+    // }
+    const handleDeleteNote = useCallback((id)=>{
+        console.log('deleting this note: ', id)
+    },[])
     return (
 
 
@@ -31,24 +39,33 @@ const Notes = () => {
                 <NoteFormModal setMyNotes={setMyNotes} />
 
             </div>
+            {
+                loading && <div className='flex justify-center items-center gap-3 border-0'>
+
+                    {[...Array(2)].map(n => {
+                        return (
+                            
+                             <div className='skeleton h-56 w-sm'>
+
+                             </div>
+                            
+                        )
+                    })}
+                </div>
+            }
 
             <div className='flex items-center justify-center gap-2 flex-wrap mt-5'>
                 {myNotes && myNotes.map(n => {
                     return (
                         <div className="card bg-base-100  w-96 h-64 shadow-sm border border-neutral-700  ">
-
                             <div className="card-body p-5 ">
                                 <div className='flex justify-between mb-2 '>
                                     <span className='text-xs tracking-widest'>
-                                        {moment(n.createdAt).format('ddd, Do MMMM YYYY')}
-
+                                        {moment(n.createdAt).format(' Do MMM YYYY')}
                                     </span>
                                     <div className='flex items-center gap-4 '>
-                                        {/* <BasicIcons icon='pencil' className='text-lg' /> */}
                                         <NoteFormModal id='Edit' prebuilt={n} setMyNotes={setMyNotes} />
-                                        <button>
-                                            <BasicIcons icon='trash' className='text-lg' />
-                                        </button>
+                                        <Deleteit key={n._id} id={n._id} onDelete={handleDeleteNote}  />
                                     </div>
 
                                 </div>
@@ -56,7 +73,8 @@ const Notes = () => {
                                     <ShowNoteInFull note={n} />
                                     <div className="badge badge-secondary badge-sm tracking-wider">{n.tag}</div>
                                 </div>
-                                <p className='overflow-auto border-0 h-28 whitespace-pre-line '>{n.text}</p>
+                                <p className='overflow-auto border-0 h-28 whitespace-pre-line '>
+                                    {n.text}</p>
 
                             </div>
 

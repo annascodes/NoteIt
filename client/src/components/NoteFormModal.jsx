@@ -21,9 +21,9 @@ const NoteFormModal = ({ btnClass = 'btn btn-outline text-xs tracking-widest', i
         request(`${import.meta.env.VITE_BACKEND_URL}/api/note/create/${user._id}`, 'POST', { heading, text, tag })
     }
     useEffect(() => {
-        if (data) {
+        if (data ) {
             toast.success('Note created.')
-            setMyNotes(prev=>[ data, ...prev])
+           if(setMyNotes) setMyNotes(prev=>[ data, ...prev])
         }
     }, [data])
 
@@ -68,7 +68,7 @@ const NoteFormModal = ({ btnClass = 'btn btn-outline text-xs tracking-widest', i
                     document.getElementById(modalId).showModal()
                 }}>
                 {
-                    prebuilt ? <BasicIcons icon='pencil' className='text-lg' />
+                    prebuilt ? <BasicIcons icon='pencil' className='text-lg cursor-pointer' />
                         : <>
                             <BasicIcons icon='plus' className='text-base' />
                             Note
@@ -77,10 +77,10 @@ const NoteFormModal = ({ btnClass = 'btn btn-outline text-xs tracking-widest', i
                 }
 
             </button>
-            <dialog id={modalId} className="modal">
-                <div className="modal-box w-sm rounded-xl">
+            <dialog id={modalId} className="modal ">
+                <div className="modal-box w-lg rounded-xl border-4 border-neutral-600 bg-stone-900">
                     <h3 className="font-bold text-lg">Write your note.</h3>
-                    <div className='mt-5'>
+                    <div className='mt-0'>
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend">Heading</legend>
                             <input value={heading} onChange={(e) => setHeading(e.target.value)} type="text" className="input w-full input-neutral" placeholder="Heading" />
